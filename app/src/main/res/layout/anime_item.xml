@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
 
     <ImageView
         android:id="@+id/iv_banner"
@@ -10,25 +11,45 @@
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/fairy_tail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_episode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
         android:lines="1"
+        android:text="Tap 5: Lucy"
         android:textColor="#ECEFF1"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_banner" />
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+        app:layout_constraintStart_toStartOf="@id/iv_banner" />
+
+    <TextView
+        android:id="@+id/tv_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:lines="1"
+        android:text="301 luot xem"
+        android:textColor="#ECEFF1"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_episode"
+        app:layout_constraintEnd_toEndOf="@id/iv_banner" />
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:lines="1"
         android:text="Fairy Tail"
         android:textColor="#ECEFF1"
-        android:textSize="20dp" />
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_episode"
+        app:layout_constraintStart_toStartOf="@id/tv_episode" />
 
 </android.support.constraint.ConstraintLayout>
