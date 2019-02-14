@@ -1,4 +1,4 @@
-package com.example.gem.jsoupdemo;
+package com.example.gem.jsoupdemo.model;
 
 import java.io.Serializable;
 
@@ -6,16 +6,16 @@ public class Article implements Serializable {
 
   private String title;
   private String url;
-  private String thumbnail;
+  private String imageUrl;
   private String description;
 
   public Article() {
   }
 
-  public Article(String title, String url, String thumbnail, String description) {
+  public Article(String title, String url, String imageUrl, String description) {
     this.title = title;
     this.url = url;
-    this.thumbnail = thumbnail;
+    this.imageUrl = imageUrl;
     this.description = description;
   }
 
@@ -35,12 +35,12 @@ public class Article implements Serializable {
     this.url = url;
   }
 
-  public String getThumbnail() {
-    return thumbnail;
+  public String getImageUrl() {
+    return imageUrl;
   }
 
-  public void setThumnail(String thumbnail) {
-    this.thumbnail = thumbnail;
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
   }
 
   public String getDescription() {

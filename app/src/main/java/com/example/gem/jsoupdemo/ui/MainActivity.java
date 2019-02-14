@@ -1,11 +1,14 @@
-package com.example.gem.jsoupdemo;
+package com.example.gem.jsoupdemo.ui;
 
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.example.gem.jsoupdemo.model.Article;
+import com.example.gem.jsoupdemo.R;
+import com.example.gem.jsoupdemo.utils.Constants;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     recycler = (RecyclerView) findViewById(R.id.rv_category);
     configRecyclerView();
-    new DownloadTask().execute(Constants.MY_URL);
+    new DownloadTask().execute(Constants.ROOT_URL.concat(Constants.MY_URL));
   }
 
   private void configRecyclerView() {
@@ -38,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private class DownloadTask extends AsyncTask<String, Void, ArrayList<Article>> {
-
-    private static final String TAG = "DownloadTask";
 
     @Override
     protected ArrayList<Article> doInBackground(String... strings) {
@@ -61,13 +62,15 @@ public class MainActivity extends AppCompatActivity {
               String title = titleSubject.text();
               article.setTitle(title);
             }
-            if (imgSubject != null) {
-              String src = imgSubject.attr("src");
-              article.setThumnail(src);
-            }
+//            if (imgSubject != null) {
+//              String src = imgSubject.attr("src");
+//              article.setImageUrl(src);
+//            }
             if (linkSubject != null) {
               String link = linkSubject.attr("href");
+              String imageUrl = linkSubject.getElementsByTag("img").first().attr("src");
               article.setUrl(link);
+              article.setImageUrl(imageUrl);
             }
             if (description != null) {
               String des = description.text();

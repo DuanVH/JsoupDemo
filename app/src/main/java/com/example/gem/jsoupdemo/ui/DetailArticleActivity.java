@@ -1,4 +1,4 @@
-package com.example.gem.jsoupdemo;
+package com.example.gem.jsoupdemo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.gem.jsoupdemo.R;
+import com.example.gem.jsoupdemo.utils.Constants;
 
 public class DetailArticleActivity extends AppCompatActivity {
 
