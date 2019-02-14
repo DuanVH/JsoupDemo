@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    recycler = (RecyclerView) findViewById(R.id.rv_category);
+    recycler = findViewById(R.id.rv_category);
     configRecyclerView();
     new DownloadTask().execute(Constants.ROOT_URL.concat(Constants.MY_URL));
   }
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
       Document document = null;
       ArrayList<Article> listArticle = new ArrayList<>();
       try {
-        document = (Document) Jsoup.connect(strings[0]).get();
+        document = Jsoup.connect(strings[0]).get();
         if (document != null) {
           //Lấy  html có thẻ như sau: div#latest-news > div.row > div.col-md-6 hoặc chỉ cần dùng  div.col-md-6
           Elements sub = document.select("div#latest-news > div.row > div.col-md-6");
